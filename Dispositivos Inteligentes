@@ -1,0 +1,109 @@
+// Casa clase esta separada por files, la clase main esta en un package Clase Main y los dispositivos en un package SmartDevise
+
+------------------------Clase SmartDevice--------------------------
+package SmartDevice;
+
+public class SmartDevice {
+    protected String marca;
+    protected String modelo;
+    protected String procesador;
+    protected String color;
+    protected int pulgadaPantalla;
+
+    public SmartDevice(){
+    }
+
+    public SmartDevice(String marca, String modelo, String procesador, String color, int pulgadaPantalla){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.procesador = procesador;
+        this.color = color;
+        this.pulgadaPantalla = pulgadaPantalla;
+
+    }
+
+
+
+}
+
+
+---------------------- Clase SmartWatch----------------------------
+package SmartDevice;
+
+public class SmartWatch extends SmartDevice {
+
+    int side;
+    String caseMaterial;
+
+    public void smartWatch(){
+    }
+
+    public SmartWatch(String marca, String modelo, String procesador, String color, int pulgadaPantalla, int side, String caseMaterial) {
+        super(marca, modelo, procesador, color, pulgadaPantalla);
+        this.side = side;
+        this.caseMaterial = caseMaterial;
+    }
+
+    @Override
+    public String toString() {
+        return "SmartWatch{" +
+                "side='" + side + '\'' +
+                ", caseMaterial='" + caseMaterial + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", procesador='" + procesador + '\'' +
+                ", color='" + color + '\'' +
+                ", pulgadaPantalla=" + pulgadaPantalla +
+                '}';
+    }
+}
+-----------------------------Clase SmartPhone------------------------------------
+package SmartDevice;
+
+public class SmartPhone extends SmartDevice {
+
+    boolean granAngular;
+    boolean faceID;
+    boolean ssd;
+
+    public void smartPhone(){
+
+    }
+
+    public SmartPhone(String marca, String modelo, String procesador, String color, int pulgadaPantalla, boolean granAngular, boolean faceID, boolean ssd) {
+        super(marca, modelo, procesador, color, pulgadaPantalla);
+        this.granAngular = granAngular;
+        this.faceID = faceID;
+        this.ssd = ssd;
+    }
+
+    @Override
+    public String toString() {
+        return "SmartPhone{" +
+                "granAngular=" + granAngular +
+                ", faceID=" + faceID +
+                ", ssd=" + ssd +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", procesador='" + procesador + '\'' +
+                ", color='" + color + '\'' +
+                ", pulgadaPantalla=" + pulgadaPantalla +
+                '}';
+    }
+}
+
+----------------------- Clase Main-----------------------
+package ClaseMain;
+
+import SmartDevice.SmartPhone;
+import SmartDevice.SmartWatch;
+
+public class Main {
+    public static void main(String[] args) {
+        SmartPhone iphone = new SmartPhone("apple", "iphone 13pro","A14", "Space Gray",6,true, true, true );
+        SmartWatch watch = new SmartWatch("apple","series 7","A14", "Blue",2 , 45, "Aluminio");
+        System.out.println(iphone);
+        System.out.println(watch);
+
+    }
+}
